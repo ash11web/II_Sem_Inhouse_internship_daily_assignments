@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration</title>
+
+<style>
+    :root{
+        --bg:#f0f4f8;
+        --card:#ffffff;
+        --text:#000;
+        --btn:#2563eb;
+    }
+
+    [data-theme="dark"]{
+        --bg:#0f172a;
+        --card:#1e293b;
+        --text:#ffffff;
+        --btn:#60a5fa;
+    }
+
+    *{
+        box-sizing:border-box;
+        margin:0;
+        padding:0;
+        font-family:Arial, sans-serif;
+    }
+
+    body{
+        background:var(--bg);
+        color:var(--text);
+    }
+
+    nav{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:20px;
+        background:var(--card);
+    }
+
+    #themeToggle{
+        padding:10px 20px;
+        border:none;
+        background:var(--btn);
+        color:white;
+        border-radius:8px;
+        cursor:pointer;
+    }
+
+    .container{
+        max-width:700px;
+        margin:40px auto;
+        background:var(--card);
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2{
+        margin-bottom:20px;
+    }
+
+    h3{
+        margin-top:15px;
+        margin-bottom:5px;
+        display:flex;
+        align-items:center;
+        gap:10px;
+    }
+
+    input{
+        width:100%;
+        padding:12px;
+        border:1px solid #ccc;
+        border-radius:8px;
+        background:transparent;
+        color:var(--text);
+    }
+
+    input[type="submit"]{
+        background:var(--btn);
+        color:white;
+        border:none;
+        margin-top:20px;
+        cursor:pointer;
+        font-weight:bold;
+    }
+</style>
+</head>
+
+<body data-theme="light">
+
+<nav>
+    <h1>Student Registration</h1>
+    <button id="themeToggle">Dark Mode</button>
+</nav>
+
+<div class="container">
+
+    <h2>Create Your Account</h2>
+
+    <form>
+
+        <h3>
+            <img src="person.svg" width="20" height="20">
+            Name
+        </h3>
+        <input type="text" placeholder="Enter Name" required>
+
+        <h3>
+            <img src="envelope.svg" width="20" height="20">
+            Email
+        </h3>
+        <input type="email" placeholder="Enter Email" required>
+
+        <h3>
+            <img src="telephone.svg" width="20" height="20">
+            Phone
+        </h3>
+        <input type="tel" placeholder="Enter Phone Number" required>
+
+        <h3>Gender</h3>
+        <input type="text" placeholder="Enter Gender" required>
+
+        <h3>Date of Birth</h3>
+        <input type="date" required>
+
+        <h3>Department</h3>
+        <input type="text" placeholder="Enter Department" required>
+
+        <h3>Password</h3>
+        <input type="password" placeholder="Enter Password" required>
+
+        <h3>Confirm Password</h3>
+        <input type="password" placeholder="Confirm Password" required>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+</div>
+
+<script>
+    const button = document.getElementById("themeToggle");
+
+    button.addEventListener("click", function() {
+
+        if(document.body.dataset.theme === "light"){
+            document.body.dataset.theme = "dark";
+            button.textContent = "Light Mode";
+        }
+        else{
+            document.body.dataset.theme = "light";
+            button.textContent = "Dark Mode";
+        }
+
+    });
+</script>
+
+</body>
+</html>

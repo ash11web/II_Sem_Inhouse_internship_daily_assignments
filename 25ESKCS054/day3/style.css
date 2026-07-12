@@ -1,0 +1,93 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#07111f;
+    color:white;
+}
+
+.custom-nav{
+    background:#081524;
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    color:#00a6ff;
+}
+
+.hero{
+    padding:150px 0 100px;
+}
+
+.hero h1{
+    font-size:4rem;
+    font-weight:700;
+}
+
+.hero span{
+    color:#00a6ff;
+}
+
+.hero p{
+    color:#c0c0c0;
+    margin:25px 0;
+}
+
+.hero-img{
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(0,166,255,.3);
+}
+
+.feature-card{
+    background:#0d1b2a;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    transition:.3s;
+    height:100%;
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+}
+
+.feature-card i{
+    font-size:40px;
+    color:#00a6ff;
+}
+
+.team{
+    background:#081524;
+}
+
+.team-card{
+    background:#0d1b2a;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.team-card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    margin-bottom:20px;
+}
+
+.contact-form{
+    background:#0d1b2a;
+    padding:30px;
+    border-radius:15px;
+}
+
+footer{
+    background:#081524;
+    padding:30px;
+}

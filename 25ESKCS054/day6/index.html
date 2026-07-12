@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello world</h1>
+    <script>
+        // let studentname = 'harsh';
+        // let studentbranch = 'cse';
+        // let studentrollno = 123;
+        // let studentmarks = 90;       
+
+    //     let students = [
+    //      {name: 'harsh',
+    //         branch: 'cse',
+    //         rollno: 123,
+    //         marks: 90,
+    //     skills: ['html', 'css', 'js']},
+
+    //     {name: 'virat',
+    //         branch: 'ece',
+    //         rollno: 124,
+    //         marks: 21,
+    //         skills: ['python', 'java']
+    //     },
+      
+    // ];
+
+
+    // for (let i = 0; i < students.length; i++) {
+    //     console.log(students[i].name);
+    //     console.log(students[i].branch);
+    //     console.log(students[i].rollno);
+    //     console.log(students[i].marks);
+    //     console.log(students[i].skills);
+    // }
+    
+    
+//         let studentobj={name: 'rohit',
+//                 branch: 'mech',
+//                 rollno: 125,
+//                 marks: 45,
+//                 skills: ['html','c', 'c++']
+//             }
+// console.log(JSON.stringify(studentobj,['skills']));
+
+
+// let jsonString = '{"name":"rohit","branch":"mech","rollno":125,"marks":45,"skills":["html","c","c++"]}';
+
+
+// let students = JSON.parse(jsonString);
+
+// console.log(students); 
+
+// const str ="hello";
+// const lowercase =str.toLowerCase();
+// const trimmed = lowercase.trim();
+const users=fetch('https://jsonplaceholder.typicode.com/users')
+// const data= users.then(response=>response.json());
+
+
+// function getUsers(response){
+//     return response.json();
+// }
+// response=> response.json();
+.then(response=>response.json())
+.then(data=>{
+    console.log(data);
+});
+
+
+    </script>
+
+</body>
+</html>

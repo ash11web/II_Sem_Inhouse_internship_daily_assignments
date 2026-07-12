@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            padding: 28px;
+            width: 340px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            display: none; /* Controlled by jQuery fadeIn on load */
+        }
+
+        .avatar {
+            width: 84px;
+            height: 84px;
+            background-color: #e0e7ff;
+            color: #4f46e5;
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+        }
+
+        .card h2 {
+            color: #111827;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .card .major {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .details {
+            display: none; /* Collapsed by default */
+            background-color: #f9fafb;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 20px;
+            text-align: left;
+            border: 1px solid #f3f4f6;
+        }
+
+        .details-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            color: #4b5563;
+        }
+
+        .details-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .details-row span:first-child {
+            font-weight: 500;
+            color: #9ca3af;
+        }
+
+        .btn-details {
+            width: 100%;
+            padding: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: #4f46e5; /* Start Color */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.15s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="avatar">R</div>
+        <h2>Ravish</h2>
+        <div class="major">UX/UI Design</div>
+
+        <div class="details">
+            <div class="details-row"><span>Student ID</span><span>1282</span></div>
+            <div class="details-row"><span>Email</span><span>ravish@gmail.com</span></div>
+            <div class="details-row"><span>Enrollment</span><span>Full-Time</span></div>
+        </div>
+
+        <button class="btn-details">Show Details</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+           
+            const primaryColor = "#4f46e5"; 
+            const activeColor = "#33o4151"; 
+         
+            $(".card").fadeIn(800);
+
+          
+            $(".btn-details").click(function() {
+                const $btn = $(this);
+                const $targetDetails = $btn.closest(".card").find(".details");
+
+                $targetDetails.slideToggle(350, function() {
+                    if ($targetDetails.is(":visible")) {
+                        $btn.text("Hide Details");
+                        $btn.css("background-color", activeColor);
+                    } else {
+                        $btn.text("Show Details");
+                        $btn.css("background-color", primaryColor);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html> 

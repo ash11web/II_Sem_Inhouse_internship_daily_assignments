@@ -1,0 +1,45 @@
+    body{
+        background-color: rgb(255, 255, 255);
+        font-family: Arial;
+        background-image: url("./graduation-high-school-university-concept.jpg");
+        background-size: cover;
+            
+
+    }
+
+    .body{
+        width: 390px;
+        margin: auto;   
+        margin-top: 40px;
+        background-color:#d6f0ff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }   
+
+    .we{
+        color: black;
+    }
+
+    input{
+        width: 300px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    input[type="submit"]{
+        background-color: rgb(235, 132, 53);    
+        color: rgb(255, 255, 255);
+        border: none;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    input[type="submit"]:hover{
+        background-color: rgb(243, 188, 69);
+    }
+h3 img{
+    position: relative;
+    top: 2px;  
+       margin-right: 8px;
+}

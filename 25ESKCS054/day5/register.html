@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | TechVerse 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --bg: #0b0f19;
+    --card: rgba(255, 255, 255, 0.03);
+    --card-hover: rgba(255, 255, 255, 0.06);
+    --text: #f3f4f6;
+    --text-muted: #9ca3af;
+    --border: rgba(255, 255, 255, 0.06);
+    --input-bg: rgba(255, 255, 255, 0.04);
+    --input-focus: rgba(59, 130, 246, 0.15);
+    --accent: #3b82f6;
+}
+
+.light {
+    --bg: #f4f7fe;
+    --card: rgba(255, 255, 255, 0.7);
+    --card-hover: rgba(255, 255, 255, 0.9);
+    --text: #0f172a;
+    --text-muted: #475569;
+    --border: rgba(0, 0, 0, 0.06);
+    --input-bg: rgba(0, 0, 0, 0.03);
+    --input-focus: rgba(37, 99, 235, 0.08);
+    --accent: #2563eb;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background 0.5s ease, color 0.5s ease;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* Aurora Ambient Ambient Effects */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.18;
+    z-index: -1;
+    animation: float 12s infinite alternate ease-in-out;
+    pointer-events: none;
+}
+
+body::before {
+    background: #3b82f6;
+    top: -200px;
+    left: -100px;
+}
+
+body::after {
+    background: #a855f7;
+    bottom: -200px;
+    right: -100px;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    to { transform: translate(80px, 60px) scale(1.05); }
+}
+
+/* Navbar */
+nav {
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(90deg, #3b82f6, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.right {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--text);
+}
+
+.theme {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.3s;
+}
+
+.theme:hover {
+    transform: scale(1.05);
+    background: var(--card-hover);
+}
+
+/* Layout Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 50px;
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Shared Card Styles */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 24px;
+    padding: 50px;
+    transition: border 0.3s, background 0.3s;
+}
+
+/* Info Left Panel */
+.left h1 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #3b82f6, #a855f7, #ff007f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.left p {
+    color: var(--text-muted);
+    font-size: 16px;
+}
+
+.info {
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 20px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    font-size: 16px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.info-item:hover {
+    transform: translateX(5px);
+    background: var(--card-hover);
+}
+
+.info-item span.icon {
+    font-size: 20px;
+}
+
+.info-item b {
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-right: 5px;
+}
+
+/* Interactive Form Styling */
+h2 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 22px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    outline: none;
+    border-radius: 12px;
+    background: var(--input-bg);
+    color: var(--text);
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: var(--accent);
+    background: var(--input-focus);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+/* Ensure dropdown options read clean in light/dark systems */
+.input-group select option {
+    background: var(--bg);
+    color: var(--text);
+}
+
+textarea {
+    resize: none;
+    height: 110px;
+}
+
+button.submit-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #3b82f6, #a855f7);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(59, 130, 246, 0.35);
+}
+
+button.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Interactive Success Toast */
+.popup {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #10b981;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    z-index: 1000;
+    transition: top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.popup.show {
+    top: 30px;
+}
+
+/* Responsive Scaling */
+@media(max-width: 950px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 30px auto;
+    }
+    .card {
+        padding: 35px 25px;
+    }
+    .left h1 {
+        font-size: 38px;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">TECHVERSE</div>
+    <div class="right">
+        <a href="index.html">← Home</a>
+        <button class="theme" id="theme">🌙</button>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- LEFT INFO CARD -->
+    <div class="card left">
+        <h1>Join The <span class="gradient">Future</span></h1>
+        <p>Register now to lock in your live pass for the premier tech ecosystem conference of 2026.</p>
+
+        <div class="info">
+            <div class="info-item">
+                <span class="icon">📅</span>
+                <div><b>Date:</b> July 10, 2026</div>
+            </div>
+            <div class="info-item">
+                <span class="icon">📍</span>
+                <div><b>Venue:</b> New Delhi, India</div>
+            </div>
+            <div class="info-item">
+                <span class="icon">⏰</span>
+                <div><b>Time:</b> 09:00 AM IST</div>
+            </div>
+            <div class="info-item">
+                <span class="icon">🎫</span>
+                <div><b>Entry:</b> Complimentary Pass</div>
+            </div>
+            <div class="info-item">
+                <span class="icon">👥</span>
+                <div><b>Attendees:</b> 5000+ Engaged Builders</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT FORM CARD -->
+    <div class="card">
+        <h2>Register Pass</h2>
+        <form id="form">
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" autocomplete="name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" autocomplete="email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input type="tel" autocomplete="tel" required>
+            </div>
+
+            <div class="input-group">
+                <label>Professional Profile</label>
+                <select required>
+                    <option value="" disabled selected hidden>Select your role</option>
+                    <option>Student</option>
+                    <option>Professional Engineer</option>
+                    <option>Faculty / Researcher</option>
+                    <option>Founder / Guest</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Primary Focus Area</label>
+                <select required>
+                    <option value="" disabled selected hidden>Select ecosystem area</option>
+                    <option>Artificial Intelligence</option>
+                    <option>Cyber Security</option>
+                    <option>Web & Cloud Architecture</option>
+                    <option>Robotics & Hardware Systems</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Additional Notes (Optional)</label>
+                <textarea placeholder="Tell us what you are looking forward to exploring..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Complete Registration</button>
+        </form>
+    </div>
+
+</div>
+
+<!-- Interactive Notification Toast -->
+<div class="popup" id="popup">
+    <span>✅</span> Registration Completed Successfully!
+</div>
+
+<script>
+// Smooth Dark/Light Mode Engine
+document.getElementById("theme").onclick = function() {
+    document.body.classList.toggle("light");
+    this.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
+};
+
+// Form Processing & Toast Trigger
+document.getElementById("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    const popup = document.getElementById("popup");
+    popup.classList.add("show");
+
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 3500);
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>
